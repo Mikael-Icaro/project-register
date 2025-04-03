@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request #importando biblioteca
+from flask import Flask, render_template, request, redirect #importando biblioteca
 
 class Aluno:
     def __init__(self, ra, nome, idade, email):
@@ -59,10 +59,8 @@ def adicionar_aluno():
     
     # a linha abaixo adiciona o novo aluno na lista
     lista_alunos_cadastrados.append(novo_aluno)
-    return render_template('lista.html',
-                           titulo = 'FECAF',
-                           alunos = lista_alunos_cadastrados)
-
+    return redirect('/lista')
+    # a linha abaixo redireciona para a pagina lista.html
 
 
 # a linha a baixo deve ser a ultima linha do projeto
